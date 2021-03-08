@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import { BiRightArrow} from "react-icons/bi";
@@ -12,6 +12,22 @@ const Sessionslist = () => {
     
     const error = useSelector(store => store.games.error)
 
+    function compare(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const bandA = a.progress.toUpperCase();
+        const bandB = b.progress.toUpperCase();
+      
+        let comparison = 0;
+        if (bandA < bandB) {
+          comparison = 1;
+        } else if (bandA > bandB) {
+          comparison = -1;
+        }
+        return comparison;
+      }
+
+    // { game.playedDate && (" - "+ game.playedDate )}
+    
     return (
         <div className="col-xl-5 col-sm-12 last-games">
                 <Module>
@@ -38,7 +54,7 @@ const Sessionslist = () => {
                                     </thead>
                                     <tbody>
                                     {
-                                        games.map((game, i) => {
+                                        games.sort(compare).map((game, i) => {
                                            return <tr key={i}>
                                                 <td className="name">
                                                 { game.password } 
@@ -46,7 +62,7 @@ const Sessionslist = () => {
                                                 <td className="master">
                                                 { game.masterName }
                                                 </td>
-                                                <td className="progress">{ game.progress } { game.playedDate && (" - "+ game.playedDate )}</td>
+                                                <td className="progress">{ game.progress } </td>
                                                 <td className="icon">
                                                     {
                                                         game.progress === 'finished' ? ( 

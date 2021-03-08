@@ -60,6 +60,10 @@ export const CardContainer = styled.div`
         bottom: 15%; 
         left: 2%; 
         background-image: url(${sorpriseBack});
+        
+        @media screen and (max-width: 1280px) {
+            bottom: 5%;
+        }
     }
 
     &#decision{
@@ -67,6 +71,10 @@ export const CardContainer = styled.div`
         bottom: 10%; 
         right: 2%; 
         background-image: url(${decitionBack});
+
+        @media screen and (max-width: 1280px) {
+            bottom: 5%;
+        }
     }
 
     &#acc{
@@ -74,6 +82,10 @@ export const CardContainer = styled.div`
         right: 40%; 
         bottom: 10%; 
         background-image: url(${actionBack});
+
+        @media screen and (max-width: 1280px) {
+            bottom: 2%;
+        }
     }
 
     &#emo{
@@ -92,6 +104,10 @@ export const CardContainer = styled.div`
         top: 5%;
         left: 22%; 
         background-image: url(${thoughtsBack});
+
+        @media screen and (max-width: 1280px) {
+            top: 2%;
+        }
     }
 
     &#pal{
@@ -240,5 +256,9 @@ export const FlipCardBack = styled.div`
         text-align: center;
         width: 80%;
         margin: auto;
+
+        @media screen and (max-width: 1024px){
+            font-size: 14px;
+        }
     }
 `

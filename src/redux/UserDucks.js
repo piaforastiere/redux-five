@@ -37,16 +37,17 @@ export const singupEmailAndPassAction = (name, email, pass) => async(dispatch) =
 
         const userDB = await db.collection('users').doc(res.user.email).get()
 
-        console.log('data', res.user);
-        
         
         const userObject = {
             uid: res.user.uid,
             email: res.user.email,
             photoURL: res.user.photoURL,
-            displayName: name
+            displayName: name,
+            subscriptionDate: new Date(),
+            subscriptionType: 'limited',
         }
 
+       console.log(userObject);
        
 
         if(userDB.exists){

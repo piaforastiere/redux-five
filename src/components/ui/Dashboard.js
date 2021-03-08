@@ -11,7 +11,11 @@ export const ContainerDash = styled.div`
     padding: 40px 60px;
     min-height: calc(100vh - 70px); 
 
-    
+    .spacer{
+        @media screen and (max-width: 1280px) {
+            width: 3%!important;
+        }
+    }
 
     .menu{
         border-right: 0.5px solid #fff;
@@ -21,6 +25,7 @@ export const ContainerDash = styled.div`
         ul{
             list-style: none;   
             padding-top: 40px;
+            padding-left: 0;
             li{
                 text-align: center;
                 margin-bottom:40px;
@@ -107,15 +112,26 @@ export const Profile = styled.div`
 export const GamesPlayed = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    border-radius: 10px;
-    background-color: rgba(26, 30, 37, 0.7);
-    padding: 20px;
     width: 100%;
     color: #fff;
     margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgba(26, 30, 37, 0.7);
+    padding: 20px;
 
+    div{
+        width: 48%;
+
+        &.line{
+            width: 0.5px;
+            height: 80px;
+            background: rgba(250, 250, 250, 0.5);
+        }
+    }
+    
     h2{
         font-weight: 500;
         width: 100%;
@@ -124,8 +140,9 @@ export const GamesPlayed = styled.div`
         letter-spacing: 1.6px;
     }
     p{
-        
+        text-transform: uppercase;
         font-weight: lighter;
+        line-height: 1.2;
         width: 100%;
         text-align: center;
         font-size: 20px;

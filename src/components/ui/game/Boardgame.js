@@ -23,6 +23,47 @@ export const BoardContainer = styled.div`
         width: calc(100% - 350px);
     }
 
+    .inst-menu{
+        background: #fff;
+        padding: 10px;
+        position: absolute;
+        top: 3px;
+        right: 60px;
+        height: 36px;
+        border-radius: 15px;
+        box-shadow: #000;
+        z-index: 99999;
+        /* &::before{
+            content: '';
+            position: absolute;
+            content: '';
+            position: absolute;
+            bottom: -1.5px;
+            right: -22px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 19.5px 0 19.5px 21px;
+            border-color: transparent transparent transparent #000000;
+            opacity: 0.5;
+            line-height: 0px;
+        } */
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            right: -13px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 18px;
+            border-color: transparent transparent transparent #ffffff;
+            line-height: 0px;
+            _border-color: #000000 #000000 #000000 #ffffff;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+
+        }
+    }
     .btn-final-end{
         z-index: 100;
         background: #fff;
@@ -61,7 +102,7 @@ export const Board = styled.div`
 
 export const PlayersContainer = styled.div`
     position: absolute;
-    bottom: 20px;
+    bottom: ${props => props.bottom ? "20px" : "90%"};
     left: 20px;
     width: 400px;
     height: 50px;
@@ -70,16 +111,27 @@ export const PlayersContainer = styled.div`
         position: absolute;
         width: 50px;
         height: 50px;
-        background: #212629;
-        border-radius: 50%;
+        
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
+
         svg{
+            font-size: 40px;
+            color: #efefef;
+        }
+        
+        &.dark{
+            background: #212629;
+            border-radius: 50%;
+            svg{
             font-size: 30px;
             color: #efefef;
         }
+        }
+
+        
         p{
             font-size: 12px;
             position: absolute;
@@ -101,21 +153,23 @@ export const PlayersContainer = styled.div`
 export const PlayersDisplay = styled.div`
     position: absolute;
     left: 60px;
-    bottom: 0;
+    bottom: ${props => props.bottom && "0px" };
+    top: ${props => props.bottom ? "auto" : "0px" };
     background: #fff;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    display: none;
+    transition: display 0.5s ease;
 
     &.active{
-        opacity: 1;
+        display: block;
     }
 
     &::after{
         content: '';
         position: absolute;
-        bottom: 14px;
+        bottom: ${props => props.bottom && "11px" };
+        top: ${props => props.bottom ? "auto" : "16px" };
         left: -18px;
         width: 0;
         height: 0;
@@ -129,16 +183,54 @@ export const PlayersDisplay = styled.div`
         list-style: none;
         padding: 0;
         margin: 0;
+        display: flex;
+        
         li{
-            margin-bottom: 10px;
-            &:last-of-type{
-                margin-bottom: 0;
+            position: relative;
+            margin-right: 8px;
+            
+            &:last-of-type::after{
+                display: none;
+            }
+            &::after{
+                content: ',';
+                position: absolute;
+            }
+        }
+        &.instructions{
+            display: block;
+            list-style: circle inside;
+            li{
+                margin-bottom: 10px;
+                line-height: 1.2;
+                &:after{
+                    display: none;
+                }
             }
         }
     }
 
+    .close{
+        font-size: 22px;
+        padding-left: 0.5px;
+        color: #fff;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        padding-top: 1px;
+        width: 25px;
+        height: 25px;
+        background: rgba(0,0,0, 0.8);
+        border-radius: 50%;
+        position: absolute;
+        top: -10px;
+        right: -12px;
+        cursor: pointer;
+    }
+
 `
 
+export const InstructionDisplay = styled.div``
 export const RightBar = styled.div`
     width: 50px;
     position: absolute;
@@ -153,6 +245,7 @@ export const RightBar = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    
     
     &.open{
         width: 350px;
@@ -192,13 +285,13 @@ export const InputTheme = styled.div`
 `
 
 export const Gradient = styled.div`
-    top: calc(50vh - 10px);
+    top: calc(50vh -  -10px);
     width: calc(100% - 16px);
     position: absolute;
-    height: 150px;
+    height: 80px;
     background: rgb(255,255,255);
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.9) 80%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.9) 80%, rgba(255,255,255,0) 100%);
 
 `
 export const ShowQuestionsContainer = styled.div`
@@ -381,7 +474,7 @@ form{
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #272727; 
     }
 }
 `

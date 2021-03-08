@@ -8,6 +8,7 @@ import { FiSend } from "react-icons/fi";
 const Notes = () => {
 
     const password = useSelector(store => store.games.password)
+    const playerName = useSelector(store => store.games.playerName)
 
     const [ note, setNote ] = useState('')
     const [ noteData, setNoteData] = useState([]);
@@ -29,12 +30,14 @@ const Notes = () => {
             
             await database.ref(password+'/notes').push().set({
                 "note" : note,
+                "player": playerName,
                 "timestamp": Date.now()
             });
 
             
             await db.collection('new-games').doc(password).collection('notes').add({
                 "note" : note,
+                "player": playerName,
                 "timestamp": Date.now()
             })
         }
@@ -76,7 +79,7 @@ const Notes = () => {
             {
                 noteData.length > 0 &&
                 noteData.map((item, i) => (
-                    <p className="text-break" key={i} > &#x2022; {item.note} </p>
+                    <p className="text-break" key={i} > &#x2022; {item.note} - {item.player} </p>
                     
                 ))
             }

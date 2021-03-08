@@ -5,15 +5,16 @@ import { BiRightArrow, BiCalendarPlus, BiCalendarCheck } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoLogOut } from "react-icons/io5";
 import { VscOpenPreview } from "react-icons/vsc";
+import { BsQuestionOctagon } from "react-icons/bs";
 
 const Menu = (logout) => {
     return (
         <div className="col-lg-1 menu">
                 <ul>
                     <li>
-                        <Link to="/sessions">
-                            <BiCalendarCheck /> 
-                            <p>Sessions</p>
+                        <Link to="/game" >
+                            <BiRightArrow /> 
+                            <p>Play</p>
                         </Link>
                     </li>
                     <li>
@@ -23,17 +24,24 @@ const Menu = (logout) => {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/instructions" >
+                            <BsQuestionOctagon /> 
+                            <p>Instructions</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/sessions">
+                            <BiCalendarCheck /> 
+                            <p>Sessions</p>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/games-information" >
                             <VscOpenPreview /> 
                             <p>Resumes</p>
                         </Link>
                     </li>
-                    <li>
-                        <Link to="/game" >
-                            <BiRightArrow /> 
-                            <p>Play</p>
-                        </Link>
-                    </li>
+                    
                     <li>
                         <Link to="/profile">
                             <CgProfile />

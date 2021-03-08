@@ -80,13 +80,13 @@ class: "pal",
     {
         id: "pal-14",
 class: "pal",
-        question:'On a scale of 1 to 10, how would you qualify the level of conversation that you are having for this situation/subject? Why?',
+        question:'On a scale of 1 to 10, how would you rate the level of conversation that you are having for this situation/subject?',
     title: "words", 
 },
     {
         id: "pal-15",
 class: "pal",
-        question:'What questions are you asking and not asking yourself about this situation/subject?',
+        question:'What are you asking yourself in this situation/subject? What are you not asking yourself that could make a difference?',
     title: "words", 
 },
     {

@@ -2,7 +2,7 @@ export default [
     {
         id: "emo-1",
 class: "emo",
-        question:'Can you name the emotion this subject/situation provokes in you?',
+        question:'What emotion does this situation/subject produce in you? Can you name it?',
     title: "emotions and feelings", 
 },
     {

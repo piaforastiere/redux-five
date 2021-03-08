@@ -28,6 +28,7 @@ const Dashboard = (props) => {
         
         dispatch(getAllGamesAction())
 
+
     },[dispatch])
 
     const logout = () => {
@@ -63,7 +64,7 @@ const Dashboard = (props) => {
             </div>
             <div className="row">
             <Menu logout={logout} />
-            <div className="col-lg-1"></div>
+            <div className="col-lg-1 spacer"></div>
             <GamesInformation />
             <Sessionslist />
             

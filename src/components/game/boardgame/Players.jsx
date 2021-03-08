@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { db } from '../../../firebase';
 import { PlayersContainer, PlayersDisplay } from '../../ui/game/Boardgame';
 
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill, BsX } from "react-icons/bs";
 
 const Players = () => {
 
@@ -25,12 +25,10 @@ const Players = () => {
             next: querySnapshot => {
                 const updatedPlayers = querySnapshot.docs.map(docSnapshot => docSnapshot.data());
                 setPlayers(updatedPlayers);
-               
+                
             },
             // error: () => setError('grocery-list-item-get-fail')
         });
-        
-        
         return unsubscribe;
     }, [password, setPlayers]);
     
@@ -40,21 +38,22 @@ const Players = () => {
     
 
     return players !== null && (
-        <PlayersContainer >
-            <div className="button" onClick={handleClick}>
-                <BsFillPersonFill/>
+        <PlayersContainer bottom >
+            <div className="button dark" onClick={handleClick}>
+                    <BsFillPersonFill/>
                 <p>{players.length}</p>
             </div>
-            <PlayersDisplay className={ show ? 'active' : ''}>
+            <PlayersDisplay bottom className={ show ? 'active' : ''}>
                 <ul>
                     {
                         players.map((item, i) => {
                             return <li key={i} >
-                                        {item.name}
+                                        {item.name} 
                                     </li>
                         })
                     }
                 </ul>
+                <div className="close" onClick={handleClick}><BsX /></div>
             </PlayersDisplay>
             
         </PlayersContainer>

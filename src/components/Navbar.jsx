@@ -64,6 +64,9 @@ const Navbar = (props) => {
                             <NavLink className="btn btn-dark me-2" to="/workshops" exact>
                                 Workshops
                             </NavLink>
+                            <NavLink className="btn btn-dark me-2" to="/instructions" exact>
+                                Instructions
+                            </NavLink>
                             <button className="btn btn-dark me-2"
                                     onClick={() => logout()}
                                     >
@@ -83,7 +86,9 @@ const Navbar = (props) => {
                        <NavLink className="btn btn-dark me-2" to="/workshops" exact>
                            Workshops
                         </NavLink>
-                        
+                        <NavLink className="btn btn-dark me-2" to="/instructions" exact>
+                           Instructions
+                        </NavLink>
                         <NavLink className="btn btn-dark me-2" to="/login" exact>
                             Login
                         </NavLink>

@@ -22,7 +22,7 @@ const GetGamesInfo = () => {
         dispatch(getAllGamesAction())
 
     },[dispatch])
-    
+
     return !loading ? (
         <ContainerResume>
             { games !== undefined && error === null ? (

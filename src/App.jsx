@@ -24,6 +24,7 @@ import Game from './components/Game';
 import Workshop from './components/Workshop';
 import Sessions from './components/dashboard/Sessions';
 import { Resume } from './components/dashboard/Resume';
+import Instructions from './components/Instructions';
 
 
 
@@ -76,6 +77,7 @@ function App() {
             <PrivateRoute component={CreateAppointment} path="/new-game" exact />
             <PrivateRoute component={Sessions} path="/sessions" exact />
             
+            <Route component={Instructions} path="/instructions" exact />
             <Route component={Login} path="/login" exact />
             <Route component={Workshop} path="/workshop" exact />
             <Route component={Singup} path="/singup" exact />

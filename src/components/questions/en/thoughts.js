@@ -104,7 +104,7 @@ class: "pensa",
     {
         id: "pen-18",
 class: "pensa",
-        question:'What does this situation/subject mean to you? How much is at stake? Have you shared it with anybody?',
+        question:'What does this situation/subject mean to you? How much is at stake?',
     title: "thoughts", 
 },
     {

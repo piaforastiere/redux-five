@@ -3,11 +3,11 @@ import React from 'react'
 import Card from './Card'
 
 import cardInfo from './cardInfo';
-import { sorprises, decisions, actions, emotions, intuition, words } from '../../questions/en'
+import { sorprises, decisions, actions, emotions, intuition, words, thoughts } from '../../questions/en'
 
 import { CardsContainer } from '../../ui/game/Cards'
 
-import { thoughts } from '../../questions/en/thoughts'
+
 
 const Cards = ({setQuestions}) => {
 

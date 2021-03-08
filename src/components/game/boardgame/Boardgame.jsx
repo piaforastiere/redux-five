@@ -12,6 +12,7 @@ import ShowQuestions from './ShowQuestions'
 import EndGame from './EndGame'
 import Notes from './Notes'
 import Players from './Players'
+import Instructions from './Instructions'
 
 
 
@@ -37,7 +38,10 @@ const Boardgame = ({themeDB}) => {
         
     }, [password, dispatch])
 
-    
+    const handleMenu = () => {
+        setOpenMenu(!openMenu)
+        document.querySelector('.inst-menu').style.display = "none"
+    }
     
     
     return (
@@ -60,19 +64,23 @@ const Boardgame = ({themeDB}) => {
                             {
                                 playerType === 'master' && <Players />
                             }
-                            
+                            {
+                                <Instructions />
+                            }
+                            <div className="inst-menu" >Click to see the selected cards and chat</div>
                     </BoardContainer>
+                    
                     <RightBar className={openMenu === true ? 'open' : undefined} id="right-menu" >
-
+                        
                         { !openMenu ?
                             <>
-                            <MenuButton onClick={() => setOpenMenu(!openMenu)}>&#x21e4;</MenuButton>
+                            <MenuButton onClick={() => handleMenu()}>&#x21e4;</MenuButton>
                             
                             </>
                             :
                             <div className="d-flex flex-column">
                                 <div className="col-sm-12">
-                                <MenuButton onClick={() => setOpenMenu(!openMenu)}>&#x21e5;</MenuButton>
+                                <MenuButton onClick={() => handleMenu()}>&#x21e5;</MenuButton>
                                 {
                                    playerType === 'master' && <EndGame questions={questions} />
                                    
